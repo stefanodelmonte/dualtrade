@@ -78,7 +78,7 @@ export default function Methodology() {
   }
 
   return (
-    <div>
+    <div id="mercado">
 
       {/* ══ ANALISIS TECNICO ══ */}
       <section

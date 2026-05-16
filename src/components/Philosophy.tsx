@@ -1,78 +1,102 @@
-/*
- * ============================================
- * Philosophy — Cita principal / filosofia
- * ============================================
- * 
- * Seccion intermedia con una frase grande centrada
- * y un glow dorado sutil de fondo.
- * 
- * Sirve como pausa visual entre el grafico
- * y la seccion de estadisticas.
- * 
- * ============================================
- */
-
 "use client";
 
-import Reveal from "./Reveal";
+import { useEffect, useRef, useState } from "react";
+
+interface StatItem {
+  value: string;
+  label: string;
+  sub: string;
+}
+
+const marketStats: StatItem[] = [
+  { value: "$3.1T", label: "Capitalización actual", sub: "Mercado cripto global" },
+  { value: "+21.000.000%", label: "Revalorización BTC", sub: "Desde 2009 hasta hoy" },
+  { value: "$200B+", label: "Volumen diario", sub: "Operaciones en 24h" },
+  { value: "580M+", label: "Inversores globales", sub: "Y creciendo cada año" },
+];
 
 export default function Philosophy() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={ref}
       style={{
-        textAlign: "center",
-        padding: "clamp(6rem, 14vh, 11rem) 2rem",
-        position: "relative",
+        padding: "clamp(5rem, 12vh, 9rem) clamp(1.5rem, 5vw, 4rem)",
         background: "#ffffff",
+        borderTop: "0.5px solid rgba(0,0,0,0.06)",
       }}
     >
-      {/* ── Glow dorado de fondo ── */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "500px",
-          height: "500px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(184,150,46,0.06) 0%, transparent 60%)",
-          pointerEvents: "none",
-        }}
-      />
+      <div style={{ maxWidth: "1060px", margin: "0 auto" }}>
 
-      <Reveal>
-        {/* ── Cita ── */}
-        <p
+        {/* Cabecera */}
+        <div
           style={{
-            fontSize: "clamp(2.2rem, 5.5vw, 4rem)",
-            fontWeight: 700,
-            lineHeight: 1.12,
-            letterSpacing: "-0.02em",
-            color: "#1d1d1f",
-            maxWidth: "700px",
-            margin: "0 auto 1.5rem",
-            position: "relative",
+            marginBottom: "3.5rem",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
           }}
         >
-          La probabilidad no garantiza cada operacion.{" "}
-          <span style={{ color: "#b8962e" }}>Garantiza el resultado de todas.</span>
-        </p>
+          <p style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#b8962e", marginBottom: "0.8rem" }}>
+            El mercado
+          </p>
+          <h2 style={{ fontSize: "clamp(1.9rem, 4.5vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.02em", color: "#1d1d1f", marginBottom: "1rem" }}>
+            Una oportunidad sin precedentes.
+          </h2>
+          <p style={{ fontSize: "clamp(0.92rem, 1.4vw, 1.05rem)", fontWeight: 300, lineHeight: 1.65, color: "#1d1d1f", maxWidth: "560px" }}>
+            Desde el genesis de Bitcoin en 2009, el mercado de criptomonedas ha generado
+            una riqueza sin precedentes en la historia financiera. Saber operar en el
+            es la ventaja competitiva del siglo XXI.
+          </p>
+        </div>
 
-        {/* ── Subtexto ── */}
-        <p
+        {/* Stats grid */}
+        <div
           style={{
-            fontSize: "1rem",
-            fontWeight: 300,
-            color: "#1d1d1f",
-            opacity: 0.4,
-            position: "relative",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            borderTop: "0.5px solid rgba(0,0,0,0.1)",
           }}
         >
-          El principio que rige cada decision.
-        </p>
-      </Reveal>
+          {marketStats.map((s, i) => (
+            <div
+              key={s.label}
+              style={{
+                padding: "2.5rem 1.5rem 2.5rem 0",
+                borderLeft: i > 0 ? "0.5px solid rgba(0,0,0,0.1)" : "none",
+                paddingLeft: i > 0 ? "1.5rem" : "0",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(20px)",
+                transition: `opacity 0.6s ease ${0.1 + i * 0.1}s, transform 0.6s ease ${0.1 + i * 0.1}s`,
+              }}
+            >
+              <div style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 700, color: "#b8962e", letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
+                {s.value}
+              </div>
+              <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1d1d1f", marginBottom: "0.25rem" }}>
+                {s.label}
+              </div>
+              <div style={{ fontSize: "0.75rem", fontWeight: 300, color: "#1d1d1f", opacity: 0.45 }}>
+                {s.sub}
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
     </section>
   );
 }

@@ -3,7 +3,7 @@
 export default function Contact() {
   return (
     <section
-      id="contactanos"
+      id="contacto"
       style={{
         position: "relative",
         zIndex: 2,
