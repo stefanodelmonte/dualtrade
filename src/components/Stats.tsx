@@ -113,16 +113,30 @@ export default function Stats() {
           Nuestros resultados.
         </h2>
 
-        {/* Stats */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", textAlign: "center", marginBottom: "5rem" }}>
-          {stats.map((s, i) => (
-            <div key={s.label} style={{ padding: "2.5rem 1rem", borderLeft: i > 0 ? "0.5px solid rgba(0,0,0,0.1)" : "none" }}>
-              <div style={{ fontSize: "clamp(2rem, 3.8vw, 3rem)", fontWeight: 700, color: "#1d1d1f", marginBottom: "0.45rem" }}>
-                <Counter target={s.target} suffix={s.suffix} decimal={s.decimal} />
-              </div>
-              <div style={{ fontSize: "0.78rem", color: "#1d1d1f", opacity: 0.4 }}>{s.label}</div>
-            </div>
-          ))}
+        {/* Texto diferenciador */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", marginBottom: "5rem", borderTop: "0.5px solid rgba(0,0,0,0.08)", paddingTop: "3rem" }}>
+          <div>
+            <p style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#b8962e", marginBottom: "1rem" }}>
+              Disciplina, no suerte
+            </p>
+            <p style={{ fontSize: "clamp(0.92rem, 1.3vw, 1.05rem)", fontWeight: 300, lineHeight: 1.75, color: "#1d1d1f" }}>
+              Operar en mercados financieros no es apostar. Cada decision que tomamos
+              esta respaldada por un analisis previo, un plan definido y una gestion
+              de riesgo que limita la exposicion del capital antes de abrir cualquier
+              posicion. El azar no tiene cabida en nuestro proceso.
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#b8962e", marginBottom: "1rem" }}>
+              Proceso sobre resultado
+            </p>
+            <p style={{ fontSize: "clamp(0.92rem, 1.3vw, 1.05rem)", fontWeight: 300, lineHeight: 1.75, color: "#1d1d1f" }}>
+              Un casino necesita que pierdas para ganar. Nosotros necesitamos entender
+              el mercado para operar con ventaja estadistica real. La diferencia es el
+              metodo: repetible, medible y mejorable. No buscamos golpes de suerte,
+              construimos un sistema que funciona en el tiempo.
+            </p>
+          </div>
         </div>
 
         {/* Cabecera carrusel */}
