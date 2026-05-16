@@ -1,0 +1,51 @@
+/*
+ * ============================================
+ * DUAL TRADE — Global Styles
+ * ============================================
+ * 
+ * Paleta: blanco (#ffffff), negro (#1d1d1f), dorado (#b8962e)
+ * Tipografia: Times New Roman para todo
+ * Sin grises — solo blanco, negro y dorado
+ * 
+ * ============================================
+ */
+
+@import "tailwindcss";
+
+/* ── Reset basico ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  background: #ffffff;
+  color: #1d1d1f;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Seleccion de texto en dorado ── */
+::selection {
+  background: #b8962e;
+  color: #ffffff;
+}
+
+/* ── Scrollbar minimalista ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1d1d1f;
+  border-radius: 3px;
+}

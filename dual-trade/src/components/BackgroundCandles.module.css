@@ -1,0 +1,37 @@
+.container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.group {
+  will-change: opacity;
+}
+
+.candle-line {
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.candle-body {
+  fill-opacity: 1;
+}
+
+/* Bullish: gold; Bearish: black. Use currentColor pattern via classes */
+.bull {
+  stroke: #b8962e;
+  fill: #b8962e;
+}
+.bear {
+  stroke: #1d1d1f;
+  fill: #1d1d1f;
+}
+
+/* small utilities */
+.hidden {
+  opacity: 0;
+}
