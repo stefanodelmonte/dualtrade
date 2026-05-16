@@ -17,12 +17,12 @@ const stats: StatDef[] = [
 ];
 
 const slides = [
-  { word: "Planificar.", sub: "Cada operacion empieza mucho antes de abrir la posicion." },
-  { word: "Actuar.", sub: "Con conviccion, sin dudas. El plan manda." },
-  { word: "Adaptarse.", sub: "El mercado cambia. Nuestra lectura tambien." },
-  { word: "Planificar.", sub: "Cada operacion empieza mucho antes de abrir la posicion." },
-  { word: "Actuar.", sub: "Con conviccion, sin dudas. El plan manda." },
-  { word: "Adaptarse.", sub: "El mercado cambia. Nuestra lectura tambien." },
+  { word: "Planificar.", sub: "Cada operación empieza mucho antes de abrir la posición." },
+  { word: "Actuar.", sub: "Con convicción, sin dudas. El plan manda." },
+  { word: "Adaptarse.", sub: "El mercado cambia. Nuestra lectura también." },
+  { word: "Planificar.", sub: "Cada operación empieza mucho antes de abrir la posición." },
+  { word: "Actuar.", sub: "Con convicción, sin dudas. El plan manda." },
+  { word: "Adaptarse.", sub: "El mercado cambia. Nuestra lectura también." },
 ];
 
 function Counter({ target, suffix, decimal }: { target: number; suffix: string; decimal?: boolean }) {
@@ -120,10 +120,10 @@ export default function Stats() {
               Disciplina, no suerte
             </p>
             <p style={{ fontSize: "clamp(0.92rem, 1.3vw, 1.05rem)", fontWeight: 300, lineHeight: 1.75, color: "#1d1d1f" }}>
-              Operar en mercados financieros no es apostar. Cada decision que tomamos
-              esta respaldada por un analisis previo, un plan definido y una gestion
-              de riesgo que limita la exposicion del capital antes de abrir cualquier
-              posicion. El azar no tiene cabida en nuestro proceso.
+              Operar en mercados financieros no es apostar. Cada decisión que tomamos
+              está respaldada por un análisis previo, un plan definido y una gestión
+              de riesgo que limita la exposición del capital antes de abrir cualquier
+              posición. El azar no tiene cabida en nuestro proceso.
             </p>
           </div>
           <div>
@@ -132,8 +132,8 @@ export default function Stats() {
             </p>
             <p style={{ fontSize: "clamp(0.92rem, 1.3vw, 1.05rem)", fontWeight: 300, lineHeight: 1.75, color: "#1d1d1f" }}>
               Un casino necesita que pierdas para ganar. Nosotros necesitamos entender
-              el mercado para operar con ventaja estadistica real. La diferencia es el
-              metodo: repetible, medible y mejorable. No buscamos golpes de suerte,
+              el mercado para operar con ventaja estadística real. La diferencia es el
+              método: repetible, medible y mejorable. No buscamos golpes de suerte,
               construimos un sistema que funciona en el tiempo.
             </p>
           </div>

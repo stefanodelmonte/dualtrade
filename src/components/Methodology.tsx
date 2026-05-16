@@ -94,15 +94,15 @@ export default function Methodology() {
           {/* Cabecera */}
           <div style={{ marginBottom: "2.8rem" }}>
             <p style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#b8962e", marginBottom: "0.8rem" }}>
-              01 — Metodologia
+              01 — Metodología
             </p>
             <h2 style={{ fontSize: "clamp(1.9rem, 4.5vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.02em", color: "#1d1d1f", marginBottom: "1rem" }}>
-              Analisis Tecnico.
+              Análisis Técnico.
             </h2>
             <p style={{ fontSize: "clamp(0.92rem, 1.4vw, 1.05rem)", fontWeight: 300, lineHeight: 1.65, color: "#1d1d1f", maxWidth: "580px" }}>
               Leemos el precio tal como es. Estructura de mercado, zonas de liquidez
-              y confluencias en multiples temporalidades. La accion del precio como
-              guia principal, sin indicadores de muleta.
+              y confluencias en múltiples temporalidades. La acción del precio como
+              guía principal, sin indicadores de muleta.
             </p>
             <p
               style={{
@@ -115,9 +115,9 @@ export default function Methodology() {
               }}
             >
               Hemos probado, y seguimos probando, diversas estrategias de trading.
-              Aplicamos la mas adecuada segun el momento del mercado, adaptandonos
-              a las condiciones sin perder de vista lo mas importante: una gestion
-              de riesgo solida que proteja el capital en todo momento.
+              Aplicamos la más adecuada según el momento del mercado, adaptándonos
+              a las condiciones sin perder de vista lo más importante: una gestión
+              de riesgo sólida que proteja el capital en todo momento.
             </p>
           </div>
 
@@ -166,16 +166,16 @@ export default function Methodology() {
           {/* Cabecera */}
           <div style={{ marginBottom: "2.8rem" }}>
             <p style={{ fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "#b8962e", marginBottom: "0.8rem" }}>
-              02 — Metodologia
+              02 — Metodología
             </p>
             <h2 style={{ fontSize: "clamp(1.9rem, 4.5vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.02em", color: "#1d1d1f", marginBottom: "1rem" }}>
-              Analisis Fundamental.
+              Análisis Fundamental.
             </h2>
             <p style={{ fontSize: "clamp(0.92rem, 1.4vw, 1.05rem)", fontWeight: 300, lineHeight: 1.65, color: "#1d1d1f", maxWidth: "580px" }}>
               Tenemos en cuenta todas las posibles causas que pueden afectar al
               precio. No podemos adivinar el futuro con certeza absoluta, pero
-              acertando el numero adecuado de veces, nuestro dinero nunca
-              dejara de crecer.
+              acertando el número adecuado de veces, nuestro dinero nunca
+              dejará de crecer.
             </p>
           </div>
 

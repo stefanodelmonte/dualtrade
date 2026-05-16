@@ -2,22 +2,78 @@
 
 import { useEffect, useRef, useState } from "react";
 
+interface GlobalData {
+  total_market_cap: { usd: number };
+  total_volume: { usd: number };
+  active_cryptocurrencies: number;
+  market_cap_percentage: { btc: number };
+}
+
 interface StatItem {
   value: string;
   label: string;
   sub: string;
 }
 
-const marketStats: StatItem[] = [
-  { value: "$3.1T", label: "Capitalización actual", sub: "Mercado cripto global" },
-  { value: "+21.000.000%", label: "Revalorización BTC", sub: "Desde 2009 hasta hoy" },
-  { value: "$200B+", label: "Volumen diario", sub: "Operaciones en 24h" },
-  { value: "580M+", label: "Inversores globales", sub: "Y creciendo cada año" },
+function formatTrillions(n: number): string {
+  if (n >= 1e12) return `$${(n / 1e12).toFixed(2)}T`;
+  if (n >= 1e9) return `$${(n / 1e9).toFixed(0)}B`;
+  return `$${n.toLocaleString("es-ES")}`;
+}
+
+function formatBillions(n: number): string {
+  if (n >= 1e12) return `$${(n / 1e12).toFixed(1)}T`;
+  if (n >= 1e9) return `$${(n / 1e9).toFixed(0)}B`;
+  return `$${n.toLocaleString("es-ES")}`;
+}
+
+function buildStats(data: GlobalData): StatItem[] {
+  return [
+    {
+      value: formatTrillions(data.total_market_cap.usd),
+      label: "Capitalización del mercado",
+      sub: "Valor total del mercado cripto",
+    },
+    {
+      value: formatBillions(data.total_volume.usd),
+      label: "Volumen en 24 h",
+      sub: "Operaciones en el último día",
+    },
+    {
+      value: `${data.active_cryptocurrencies.toLocaleString("es-ES")}`,
+      label: "Criptomonedas activas",
+      sub: "Proyectos con mercado activo",
+    },
+    {
+      value: `${data.market_cap_percentage.btc.toFixed(1)}%`,
+      label: "Dominancia de BTC",
+      sub: "Porcentaje del mercado total",
+    },
+  ];
+}
+
+const FALLBACK: StatItem[] = [
+  { value: "$3.1T", label: "Capitalización del mercado", sub: "Valor total del mercado cripto" },
+  { value: "$200B", label: "Volumen en 24 h", sub: "Operaciones en el último día" },
+  { value: "17.000+", label: "Criptomonedas activas", sub: "Proyectos con mercado activo" },
+  { value: "60%", label: "Dominancia de BTC", sub: "Porcentaje del mercado total" },
 ];
 
 export default function Philosophy() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [stats, setStats] = useState<StatItem[]>(FALLBACK);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://api.coingecko.com/api/v3/global")
+      .then((r) => r.json())
+      .then((json) => {
+        if (json?.data) setStats(buildStats(json.data));
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -57,8 +113,8 @@ export default function Philosophy() {
             Una oportunidad sin precedentes.
           </h2>
           <p style={{ fontSize: "clamp(0.92rem, 1.4vw, 1.05rem)", fontWeight: 300, lineHeight: 1.65, color: "#1d1d1f", maxWidth: "560px" }}>
-            Desde el genesis de Bitcoin en 2009, el mercado de criptomonedas ha generado
-            una riqueza sin precedentes en la historia financiera. Saber operar en el
+            Desde el génesis de Bitcoin en 2009, el mercado de criptomonedas ha generado
+            una riqueza sin precedentes en la historia financiera. Saber operar en él
             es la ventaja competitiva del siglo XXI.
           </p>
         </div>
@@ -71,7 +127,7 @@ export default function Philosophy() {
             borderTop: "0.5px solid rgba(0,0,0,0.1)",
           }}
         >
-          {marketStats.map((s, i) => (
+          {stats.map((s, i) => (
             <div
               key={s.label}
               style={{
@@ -83,7 +139,17 @@ export default function Philosophy() {
                 transition: `opacity 0.6s ease ${0.1 + i * 0.1}s, transform 0.6s ease ${0.1 + i * 0.1}s`,
               }}
             >
-              <div style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 700, color: "#b8962e", letterSpacing: "-0.02em", marginBottom: "0.5rem" }}>
+              <div
+                style={{
+                  fontSize: "clamp(1.4rem, 2.6vw, 2.1rem)",
+                  fontWeight: 700,
+                  color: "#b8962e",
+                  letterSpacing: "-0.02em",
+                  marginBottom: "0.5rem",
+                  opacity: loading ? 0.3 : 1,
+                  transition: "opacity 0.4s ease",
+                }}
+              >
                 {s.value}
               </div>
               <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1d1d1f", marginBottom: "0.25rem" }}>

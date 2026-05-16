@@ -107,7 +107,7 @@ export default function Hero() {
             marginBottom: "2.8rem",
           }}
         >
-          Analisis tecnico, gestion de riesgo y operativa disciplinada en
+          Análisis técnico, gestión de riesgo y operativa disciplinada en
           Bitcoin, Ethereum y altcoins seleccionadas.
         </p>
       </FadeIn>
@@ -132,7 +132,7 @@ export default function Hero() {
           onMouseEnter={(e) => (e.currentTarget.style.gap = "0.5rem")}
           onMouseLeave={(e) => (e.currentTarget.style.gap = "0.3rem")}
         >
-          Conocer mas <span style={{ fontSize: "1.15rem" }}>&#8594;</span>
+          Conocer más <span style={{ fontSize: "1.15rem" }}>&#8594;</span>
         </button>
       </FadeIn>
 

@@ -2,16 +2,16 @@
 
 const cards = [
   {
-    title: "Combatir la inflacion",
+    title: "Combatir la inflación",
     body: "El dinero parado pierde valor cada año. Entender los mercados es el primer paso para proteger lo que has ganado.",
   },
   {
-    title: "Independencia economica",
-    body: "No dependas de un salario para siempre. Con metodo y constancia, tu capital puede trabajar por ti.",
+    title: "Independencia económica",
+    body: "No dependas de un salario para siempre. Con método y constancia, tu capital puede trabajar por ti.",
   },
   {
     title: "Planifica tu futuro",
-    body: "Tomar el control de tus finanzas hoy es la mejor decision que puedes tomar. Empieza pequeno, piensa a largo plazo.",
+    body: "Tomar el control de tus finanzas hoy es la mejor decisión que puedes tomar. Empieza poco a poco, piensa a largo plazo.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function Approach() {
             color: "#1d1d1f",
           }}
         >
-          Nuestra motivacion.
+          Nuestra motivación.
         </h2>
 
         <div
@@ -60,8 +60,8 @@ export default function Approach() {
             marginBottom: "3.2rem",
           }}
         >
-          La mejor forma de combatir la inflacion y conseguir independencia
-          economica es aprender a utilizar nuestros ahorros con cabeza.
+          La mejor forma de combatir la inflación y conseguir independencia
+          económica es aprender a utilizar nuestros ahorros con cabeza.
           El mercado no es un casino — es una herramienta. Y como toda
           herramienta, funciona si sabes usarla.
         </p>
